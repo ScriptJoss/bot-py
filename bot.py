@@ -1,6 +1,6 @@
 import discord
 from config import *
-from gen_pass import * 
+from bot_commands import * 
 # La variable intents almacena los privilegios del bot
 intents = discord.Intents.default()
 # Activar el privilegio de lectura de mensajes
@@ -22,6 +22,8 @@ async def on_message(message):
         await message.channel.send("\U0001f642")
     if message.content.startswith('$pass'):
         await message.channel.send(gen_pass(10))
+    if message.content.startswith('$emojis'):
+        await message.channel.send(gen_emojis())
     else:
         await message.channel.send(message.content)
 

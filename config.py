@@ -1,4 +1,4 @@
 settings = {
     "prefix": "$",
-    "token": "No lo pongo por seguridad.",
+    "token": "No la subo por seguridad 🧏🏻‍♂️.",
 }

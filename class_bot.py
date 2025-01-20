@@ -1,4 +1,5 @@
 import discord
+import random
 from discord.ext import commands
 from config import settings
 
@@ -23,5 +24,25 @@ async def heh(ctx, count_heh = 5):
 async def add(ctx, left: int, right: int):
     """Adds two numbers together."""
     await ctx.send(left + right)
+
+# Comando de ayuda.
+@bot.command()
+async def helpop(ctx):
+    help = discord.Embed(
+        title="Comandos del bot 🤖",
+        description="Estos son algunos comandos del bot Jinbe 😁",
+        color=discord.Color.green()
+    )
+    help.set_thumbnail(url='https://i.imgur.com/V56GoSv.jpeg')
+    help.set_author(name='Jinbe Bot', icon_url='https://i.imgur.com/V56GoSv.jpeg') 
+    help.set_image(url='https://i.imgur.com/V56GoSv.jpeg')
+    help.set_footer(text="Jinbe Bot", icon_url='https://i.imgur.com/V56GoSv.jpeg')
+
+    # Añadir campos al embed
+    help.add_field(name="$hello", value="Saluda al bot", inline=False)
+    help.add_field(name="$heh", value="Multiplica una palabra x5", inline=False)
+    help.add_field(name="$add", value="Agrega dos numeros para ser sumados.", inline=False)
+
+    await ctx.send(embed=help)
 
 bot.run(settings['token'])
